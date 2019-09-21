@@ -14,8 +14,22 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := $(call my-dir)
+# Release name
+PRODUCT_RELEASE_NAME := CPH1955
 
-ifneq ($(filter RMX1901,$(TARGET_DEVICE)),)
-include $(call all-makefiles-under,$(LOCAL_PATH))
-endif
+$(call inherit-product, build/target/product/embedded.mk)
+
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/omni/config/common.mk)
+
+## Device identifier. This must come after all inclusions
+PRODUCT_DEVICE := CPH1955
+PRODUCT_NAME := omni_CPH1955
+PRODUCT_BRAND := OPPO
+PRODUCT_MODEL := CPH1955
+PRODUCT_MANUFACTURER := OPPO
+
+# HACK: Set vendor patch level
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.build.security_patch=2099-12-31
+
