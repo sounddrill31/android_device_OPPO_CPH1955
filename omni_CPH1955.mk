@@ -20,8 +20,8 @@ PRODUCT_RELEASE_NAME := CPH1955
 $(call inherit-product, build/target/product/embedded.mk)
 
 # Inherit from our custom product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
-
+$(call inherit-product, vendor/pb/config/common.mk)
+# to support pbrp
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := CPH1955
 PRODUCT_NAME := omni_CPH1955
